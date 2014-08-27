@@ -14,15 +14,22 @@ module Spree
         end
 
         def mailer_methods
-          public_instance_methods - superclass.public_instance_methods
+          methods = public_instance_methods - superclass.public_instance_methods
+
+          # Reject route helper methods.
+          methods.reject{ |m| m.to_s.end_with?("_url", "_path") }
         end
 
         def method_missing(method_name, *args)
           if mailer_methods.include?(method_name.to_sym)
             new(method_name, *args).message
           else
-            super
+            super(method_name, *args)
           end
+        end
+
+        def respond_to?(symbol, include_private = false)
+          super || mailer_methods.include?(symbol)
         end
       end
 
