@@ -18,6 +18,15 @@ Bundle your dependencies and run the installation generator:
 bundle install
 ```
 
+Add `send_with_us.rb` in `config/initializers` with the following:
+
+```ruby
+SendWithUs::Api.configure do |config|
+  config.api_key = ENV["SEND_WITH_US_API_KEY"]
+  config.debug = true
+end
+```
+
 Testing
 -------
 
