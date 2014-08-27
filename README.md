@@ -27,6 +27,46 @@ SendWithUs::Api.configure do |config|
 end
 ```
 
+Now you can configure any of your mailers to use SendWithUs by making them a subclass of `Spree::SendWithUsMailer::Base`. For example:
+
+```ruby
+# app/mailers/spree/quality_control_mailer.rb
+
+class Spree::QualityControlMailer < Spree::SendWithUsMailer::Base
+  default recipient_name: "Quality Control",
+          recipient_address: "quality@freerunningtech.com",
+          from_name: "Quality Control",
+          from_address: "quality@freerunningtech.com"
+
+  def reprint(original, reprint)
+    assign(:original, order_data(Spree::Order.find(original)))
+    assign(:reprint, order_data(Spree::Order.find(reprint)))
+
+    mail(email_id: "SEND_WITH_US_TEMPLATE_ID")
+  end
+
+  private
+  def order_data(order)
+    {
+      url: spree.admin_order_url(order),
+      number: order.number
+    }
+  end
+end
+```
+
+The mailer will work with delayed job or without:
+
+```ruby
+# Delayed
+Spree::QualityControlMailer.delay.reprint(1, 2)
+
+# Inline
+Spree::QualityControlMailer.reprint(1, 2).deliver
+```
+
+Also, the default URL host will be pulled from `config.action_mailer.default_url_options` so there's no need for any extra configuration.
+
 Testing
 -------
 
