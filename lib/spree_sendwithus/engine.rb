@@ -17,6 +17,18 @@ module SpreeSendwithus
       end
     end
 
+    initializer "sendwithus_mailer.set_configs" do |app|
+      ActiveSupport.on_load(:spree_sendwithus_mailer) do
+        include AbstractController::UrlFor
+        extend ::AbstractController::Railties::RoutesHelpers.with(app.routes)
+        include app.routes.mounted_helpers
+
+        if Object.const_defined?("Delayed::DelayMail")
+          extend Delayed::DelayMail
+        end
+      end
+    end
+
     config.to_prepare &method(:activate).to_proc
   end
 end

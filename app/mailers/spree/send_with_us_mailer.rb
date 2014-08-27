@@ -2,7 +2,10 @@ module Spree
   module SendWithUsMailer
     class Base
       class_attribute :defaults
+      class_attribute :default_url_options
+
       self.defaults = {}.freeze
+      self.default_url_options = ActionMailer::Base.default_url_options
 
       class << self
         def default(value = nil)
@@ -37,6 +40,8 @@ module Spree
       def assign(key, value)
         @message.assign(key, value)
       end
+
+      ActiveSupport.run_load_hooks(:spree_sendwithus_mailer, self)
     end
   end
 end
