@@ -1,4 +1,4 @@
-Spree Sendwithus
+Spree SendWithUs
 ================
 
 SendWithUs mailer you can use in Spree! Say what?!
@@ -65,7 +65,7 @@ Spree::QualityControlMailer.delay.reprint(1, 2)
 Spree::QualityControlMailer.reprint(1, 2).deliver
 ```
 
-Also, the default URL host will be pulled from `config.action_mailer.default_url_options` so there's no need for any extra configuration.
+Also, the default URL host will be pulled from `config.action_mailer.default_url_options` so there's no need for any extra configuration! You're welcome!
 
 Testing
 -------
