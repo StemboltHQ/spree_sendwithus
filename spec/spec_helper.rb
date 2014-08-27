@@ -1,6 +1,7 @@
 require 'simplecov'
 SimpleCov.start do
   add_filter 'spec/dummy'
+  add_filter 'vendor/bundle'
   add_group 'Controllers', 'app/controllers'
   add_group 'Helpers', 'app/helpers'
   add_group 'Mailers', 'app/mailers'
@@ -36,13 +37,15 @@ RSpec.configure do |config|
 
   config.use_transactional_fixtures = false
 
+  config.infer_spec_type_from_file_location!
+
   config.before :suite do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with :truncation
   end
 
   config.before :each do
-    DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
+    DatabaseCleaner.strategy = RSpec.current_example.metadata[:js] ? :truncation : :transaction
     DatabaseCleaner.start
   end
 

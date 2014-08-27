@@ -3,7 +3,7 @@ require 'send_with_us'
 module Spree
   module SendWithUs
     class Message
-      attr_reader :to, :from, :email_id, :email_data
+      attr_reader :to, :from, :email_id, :email_data, :cc, :bcc
 
       def initialize
         @email_data = {}
