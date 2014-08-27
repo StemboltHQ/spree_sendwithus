@@ -26,6 +26,9 @@ module SpreeSendwithus
         if defined?(Delayed::DelayMail)
           extend Delayed::DelayMail
         end
+
+        options = app.config.action_mailer
+        send(:default_url_options=, options.default_url_options)
       end
     end
 

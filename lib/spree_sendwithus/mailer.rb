@@ -5,7 +5,6 @@ module Spree
       class_attribute :default_url_options
 
       self.defaults = {}.freeze
-      self.default_url_options = ActionMailer::Base.default_url_options
 
       class << self
         def default(value = nil)
