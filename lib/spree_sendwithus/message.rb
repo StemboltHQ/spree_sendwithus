@@ -41,9 +41,7 @@ module Spree
       end
 
       def deliver
-        if Config[:send_core_emails]
-          ::SendWithUs::Api.new.send_with(@email_id, @to, @email_data, @from, @cc, @bcc)
-        end
+        ::SendWithUs::Api.new.send_with(@email_id, @to, @email_data, @from, @cc, @bcc)
       end
     end
   end

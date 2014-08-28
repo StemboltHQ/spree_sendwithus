@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'spree_sendwithus'
 
 describe Spree::SendWithUs::Message do
   subject { Spree::SendWithUs::Message.new }
