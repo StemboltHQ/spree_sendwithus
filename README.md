@@ -70,11 +70,12 @@ Also, the default URL host will be pulled from `config.action_mailer.default_url
 Testing
 -------
 
+Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
+
 ```shell
 bundle
-bundle exec rspec
+bundle exec rake test_app
+bundle exec rspec spec
 ```
-
-So easy!
 
 Copyright (c) 2014 FreeRunning Technologies, released under the New BSD License
