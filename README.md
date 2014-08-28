@@ -9,7 +9,7 @@ Installation
 Add spree_sendwithus to your Gemfile:
 
 ```ruby
-gem 'spree_sendwithus'
+gem 'spree_sendwithus', github: 'freerunningtech/spree_sendwithus', branch: '2-0-stable'
 ```
 
 Bundle your dependencies and run the installation generator:
