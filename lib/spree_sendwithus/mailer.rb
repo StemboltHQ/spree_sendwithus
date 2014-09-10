@@ -33,9 +33,11 @@ module Spree
       end
 
       attr_reader :message
+      attr_reader :action
 
       def initialize(method_name, *args)
         @message = Spree::SendWithUs::Message.new
+        @action = method_name
         self.send(method_name, *args)
       end
 
