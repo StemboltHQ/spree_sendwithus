@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_sendwithus'
-  s.version     = '2.0.11'
+  s.version     = '2.0.11.1'
   s.summary     = 'SendWithUs integration'
   s.required_ruby_version = '>= 1.9.3'
 
@@ -10,8 +10,7 @@ Gem::Specification.new do |s|
   s.email     = 'contact@freerunningtech.com'
   s.homepage  = 'http://www.freerunningtech.com'
 
-  s.require_path = 'lib'
-  s.requirements << 'none'
+  s.require_paths = ["lib"]
 
   s.add_dependency 'spree_core', '~> 2.0.11.beta'
   s.add_dependency 'send_with_us', '~> 1.1.4'
