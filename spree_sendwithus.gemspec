@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency 'spree_core', '~> 2.0.11.beta'
-  s.add_dependency 'send_with_us', '~> 1.1.4'
+  s.add_dependency 'send_with_us', '~> 1.5.0'
 
   s.add_development_dependency 'rspec-rails', '~> 3.0.0'
   s.add_development_dependency 'simplecov'
