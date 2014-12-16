@@ -3,7 +3,7 @@ require 'send_with_us'
 module Spree
   module SendWithUs
     class Message
-      attr_reader :to, :from, :email_id, :email_data, :cc, :bcc
+      attr_reader :to, :from, :email_id, :email_data, :cc, :bcc, :files
 
       def initialize
         @email_data = {}
@@ -11,6 +11,7 @@ module Spree
         @from = {}
         @cc = []
         @bcc = []
+        @files = []
       end
 
       def assign(key, value)
@@ -36,12 +37,14 @@ module Spree
             @cc.concat(value)
           when :bcc
             @bcc.concat(value)
+          when :files
+            @files.concat(value)
           end
         end
       end
 
       def deliver
-        ::SendWithUs::Api.new.send_with(@email_id, @to, @email_data, @from, @cc, @bcc)
+        ::SendWithUs::Api.new.send_with(@email_id, @to, @email_data, @from, @cc, @bcc, @files)
       end
     end
   end

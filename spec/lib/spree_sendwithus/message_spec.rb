@@ -45,7 +45,8 @@ describe Spree::SendWithUs::Message do
       from_address: "jared@example.com",
       reply_to: "gregor@example.com",
       cc: ["sean@example.com"],
-      bcc: ["clarke@example.com", "kyria@example.com"]
+      bcc: ["clarke@example.com", "kyria@example.com"],
+      files: ["path/to/file.txt", "../another_file.txt"]
     ] }
 
     before do
@@ -77,6 +78,12 @@ describe Spree::SendWithUs::Message do
       expect(subject.bcc).to match_array [
         "clarke@example.com",
         "kyria@example.com"
+      ]
+    end
+    it "contains the expected files array" do
+      expect(subject.files).to match_array [
+        "path/to/file.txt",
+        "../another_file.txt"
       ]
     end
   end
