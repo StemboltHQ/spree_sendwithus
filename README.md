@@ -28,6 +28,13 @@ SendWithUs::Api.configure do |config|
 end
 ```
 
+If you want to globally configure the email service provider SendWithUs will use, say for sending staging emails to something like [mailtrap.io](https://mailtrap.io/), then simply add the following to an initializer:
+```ruby
+Spree::SendWithUs::Base.configure do |config|
+  config.esp_account = ENV['SEND_WITH_US_ESP_ACCOUNT']
+end
+```
+
 Now you can configure any of your mailers to use SendWithUs by making them a subclass of `Spree::SendWithUsMailer::Base`. For example:
 ```ruby
 # app/mailers/spree/quality_control_mailer.rb
