@@ -42,7 +42,10 @@ class Spree::QualityControlMailer < Spree::SendWithUsMailer::Base
     assign(:original, order_data(Spree::Order.find(original)))
     assign(:reprint, order_data(Spree::Order.find(reprint)))
 
-    mail(email_id: "SEND_WITH_US_TEMPLATE_ID")
+    mail(
+      email_id: 'SEND_WITH_US_TEMPLATE_ID',
+      esp_account: 'SEND_WITH_US_ESP_API_ID' # Optional
+    )
   end
 
   private
