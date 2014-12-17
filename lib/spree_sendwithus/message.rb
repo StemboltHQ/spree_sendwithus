@@ -13,7 +13,7 @@ module Spree
         @cc = []
         @bcc = []
         @files = []
-        @esp_account = ""
+        @esp_account = Base.esp_account || ""
       end
 
       def assign(key, value)
