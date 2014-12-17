@@ -46,7 +46,8 @@ describe Spree::SendWithUs::Message do
       reply_to: "gregor@example.com",
       cc: ["sean@example.com"],
       bcc: ["clarke@example.com", "kyria@example.com"],
-      files: ["path/to/file.txt", "../another_file.txt"]
+      files: ["path/to/file.txt", "../another_file.txt"],
+      esp_account: "esp_1234"
     ] }
 
     before do
@@ -85,6 +86,9 @@ describe Spree::SendWithUs::Message do
         "path/to/file.txt",
         "../another_file.txt"
       ]
+    end
+    it "contains the expected esp account" do
+      expect(subject.esp_account).to eq "esp_1234"
     end
   end
 
