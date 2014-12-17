@@ -7,19 +7,20 @@ Installation
 ------------
 
 Add spree_sendwithus to your Gemfile:
-
 ```ruby
+# Rubygems
+gem 'spree_sendwithus'
+
+# Direct from Github
 gem 'spree_sendwithus', github: 'freerunningtech/spree_sendwithus'
 ```
 
 Bundle your dependencies and run the installation generator:
-
 ```shell
 bundle install
 ```
 
 Add `send_with_us.rb` in `config/initializers` with the following:
-
 ```ruby
 SendWithUs::Api.configure do |config|
   config.api_key = ENV["SEND_WITH_US_API_KEY"]
@@ -28,7 +29,6 @@ end
 ```
 
 Now you can configure any of your mailers to use SendWithUs by making them a subclass of `Spree::SendWithUsMailer::Base`. For example:
-
 ```ruby
 # app/mailers/spree/quality_control_mailer.rb
 
@@ -56,7 +56,6 @@ end
 ```
 
 The mailer will work with delayed job or without:
-
 ```ruby
 # Delayed
 Spree::QualityControlMailer.delay.reprint(1, 2)
@@ -67,9 +66,15 @@ Spree::QualityControlMailer.reprint(1, 2).deliver
 
 Also, the default URL host will be pulled from `config.action_mailer.default_url_options` so there's no need for any extra configuration! You're welcome!
 
+RSpec
+-----
+Have spree_sendwithus mailers? Want to do some testing with RSpec? Don't want to hit the API?! Then look no further! Just add the following to your `spec_helper.rb` and bask in the glory that is mocking!
+```ruby
+require 'spree_sendwithus/rspec_support'
+```
+
 Testing
 -------
-
 Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
 
 ```shell
