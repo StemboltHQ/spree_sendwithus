@@ -1,8 +1,7 @@
 module Spree
   module SendWithUsMailer
-    class Base
+    class Base < ::ActionMailer::Base
       class_attribute :defaults
-      class_attribute :default_url_options
 
       self.defaults = {}.freeze
 
