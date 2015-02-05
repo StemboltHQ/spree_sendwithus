@@ -4,7 +4,7 @@ module Spree
   module SendWithUs
     class Message
       attr_reader :to, :from, :email_id, :email_data, :cc, :bcc, :files,
-        :esp_account
+        :esp_account, :tags, :locale
 
       def initialize
         @email_data = {}

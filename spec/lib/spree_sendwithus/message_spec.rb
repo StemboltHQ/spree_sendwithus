@@ -47,7 +47,9 @@ describe Spree::SendWithUs::Message do
       cc: ["sean@example.com"],
       bcc: ["clarke@example.com", "kyria@example.com"],
       files: ["path/to/file.txt", "../another_file.txt"],
-      esp_account: "esp_1234"
+      esp_account: "esp_1234",
+      tags: ['thing'],
+      locale: "en"
     ] }
 
     before do
@@ -89,6 +91,14 @@ describe Spree::SendWithUs::Message do
     end
     it "contains the expected esp account" do
       expect(subject.esp_account).to eq "esp_1234"
+    end
+
+    it "contains the expected tags" do
+      expect(subject.tags).to eq ['thing']
+    end
+
+    it "contains the expected locale" do
+      expect(subject.locale).to eq 'en'
     end
   end
 
