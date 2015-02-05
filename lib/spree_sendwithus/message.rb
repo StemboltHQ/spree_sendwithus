@@ -14,6 +14,8 @@ module Spree
         @bcc = []
         @files = []
         @esp_account = Base.esp_account || ""
+        @tags = []
+        @locale = I18n.default_locale.to_s
       end
 
       def assign(key, value)
@@ -43,20 +45,28 @@ module Spree
             @files.concat(value)
           when :esp_account
             @esp_account = value
+          when :tags
+            @tags = value
+          when :locale
+            @locale = value
           end
         end
       end
 
       def deliver
-        ::SendWithUs::Api.new.send_with(
+        ::SendWithUs::Api.new.send_email(
           @email_id,
           @to,
-          @email_data,
-          @from,
-          @cc,
-          @bcc,
-          @files,
-          @esp_account
+          {
+            data: @email_data,
+            from: @from,
+            cc: @cc,
+            bcc: @bcc,
+            esp_account: @esp_account,
+            files: @files,
+            tags: @tags,
+            locale: @locale
+          }
         )
       end
     end

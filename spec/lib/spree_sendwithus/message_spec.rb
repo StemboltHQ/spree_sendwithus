@@ -97,7 +97,7 @@ describe Spree::SendWithUs::Message do
 
     it "calls the send_with_us gem" do
       allow(SendWithUs::Api).to receive(:new).and_return(api_double)
-      expect(api_double).to receive(:send_with)
+      expect(api_double).to receive(:send_email)
 
       subject.deliver
     end
