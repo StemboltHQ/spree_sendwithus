@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_sendwithus'
-  s.version     = '2.0.11.10'
+  s.version     = '2.0.11.11'
   s.summary     = 'SendWithUs integration'
   s.license     = 'BSD-3'
 

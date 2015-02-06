@@ -4,7 +4,7 @@ module Spree
   module SendWithUs
     class Message
       attr_reader :to, :from, :email_id, :email_data, :cc, :bcc, :files,
-        :esp_account, :tags, :locale
+        :esp_account, :tags, :locale, :version_name
 
       def initialize
         @email_data = {}
@@ -16,6 +16,7 @@ module Spree
         @esp_account = Base.esp_account || ""
         @tags = []
         @locale = I18n.default_locale.to_s
+        @version_name = ""
       end
 
       def assign(key, value)
@@ -49,6 +50,8 @@ module Spree
             @tags = value
           when :locale
             @locale = value
+          when :version_name
+            @version_name = value
           end
         end
       end
@@ -65,7 +68,8 @@ module Spree
             esp_account: @esp_account,
             files: @files,
             tags: @tags,
-            locale: @locale
+            locale: @locale,
+            version_name: @version_name
           }
         )
       end

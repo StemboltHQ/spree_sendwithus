@@ -49,7 +49,8 @@ describe Spree::SendWithUs::Message do
       files: ["path/to/file.txt", "../another_file.txt"],
       esp_account: "esp_1234",
       tags: ['thing'],
-      locale: "en"
+      locale: "en",
+      version_name: "rawr"
     ] }
 
     before do
@@ -99,6 +100,10 @@ describe Spree::SendWithUs::Message do
 
     it "contains the expected locale" do
       expect(subject.locale).to eq 'en'
+    end
+
+    it "contains the expected version_name" do
+      expect(subject.version_name).to eq 'rawr'
     end
   end
 
