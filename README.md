@@ -3,6 +3,10 @@ Spree SendWithUs
 
 SendWithUs mailer you can use in Spree! Say what?!
 
+[![Code Climate](https://codeclimate.com/github/freerunningtech/spree_sendwithus/badges/gpa.svg)](https://codeclimate.com/github/freerunningtech/spree_sendwithus)
+[![Test Coverage](https://codeclimate.com/github/freerunningtech/spree_sendwithus/badges/coverage.svg)](https://codeclimate.com/github/freerunningtech/spree_sendwithus)
+[![Gem Version](https://badge.fury.io/rb/spree_sendwithus.svg)](http://badge.fury.io/rb/spree_sendwithus)
+
 Installation
 ------------
 
