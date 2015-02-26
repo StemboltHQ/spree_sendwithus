@@ -3,9 +3,9 @@ rvm:
   - 2.1.1
   - 2.2.0
 before_script:
-  - rake test_app
+  - bundle exec rake test_app
 script:
-  - rspec
+  - bundle exec rspec
 addons:
   code_climate:
     repo_token: b42e7607d7d91808741f8652513ec760740a73ca01415189c147d000601a0c88
