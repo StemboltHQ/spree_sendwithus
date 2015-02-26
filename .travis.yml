@@ -1,7 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.1
-  - 2.2.0
+  - 2.1
 before_script:
   - bundle exec rake test_app
 script:
