@@ -6,3 +6,6 @@ before_script:
   - rake test_app
 script:
   - rspec
+addons:
+  code_climate:
+    repo_token: b42e7607d7d91808741f8652513ec760740a73ca01415189c147d000601a0c88
