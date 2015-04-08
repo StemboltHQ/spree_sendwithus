@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_sendwithus'
-  s.version     = '2.1.0'
+  s.version     = '2.2.0'
   s.summary     = 'SendWithUs integration'
   s.license     = 'BSD-3'
 
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {spec}/*`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_dependency 'spree_core', '~> 2.1'
+  s.add_dependency 'spree_core', '~> 2.2'
   s.add_dependency 'send_with_us', '~> 1.9'
 
   s.add_development_dependency 'rspec-rails', '~> 3.0.0'
