@@ -15,7 +15,7 @@ module Spree
         @files = []
         @esp_account = Base.esp_account || ""
         @tags = []
-        @locale = I18n.default_locale.to_s
+        @locale = 'en-US'
         @version_name = ""
       end
 
