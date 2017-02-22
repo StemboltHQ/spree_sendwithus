@@ -8,17 +8,18 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 1.9.3'
 
-  s.author    = 'FreeRunning Technologies'
-  s.email     = 'contact@freerunningtech.com'
-  s.homepage  = 'http://www.freerunningtech.com'
+  s.author    = 'Stembolt Technologies'
+  s.email     = 'contact@stembolt.com'
+  s.homepage  = 'https://www.stembolt.com'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {spec}/*`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_dependency 'spree_core', '~> 2.2'
+  s.add_dependency 'solidus_core', '~> 1.4'
   s.add_dependency 'send_with_us', '~> 1.9'
 
+  s.add_development_dependency 'rake', '< 11.0'
   s.add_development_dependency 'rspec-rails', '~> 3.0.0'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'sqlite3'
